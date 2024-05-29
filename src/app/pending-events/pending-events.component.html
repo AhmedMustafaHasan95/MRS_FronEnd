@@ -1,0 +1,40 @@
+<div class="container mt-4">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Contact Person</th>
+                <th>Contact Email</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Event Date</th>
+                <th>Start At</th>
+                <th>End At</th>
+                <th>User</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let event of events">
+                <td>{{ event.name }}</td>
+                <td>{{ event.location }}</td>
+                <td>{{ event.contactPerson }}</td>
+                <td>{{ event.contactEmail }}</td>
+                <td>{{ event.description }}</td>
+                <td>{{ event.type }}</td>
+                <td>{{ event.status }}</td>
+                <td>{{ event.eventDate }}</td>
+                <td>{{ event.startAt }}</td>
+                <td>{{ event.endAt }}</td>
+                <td>{{ event.creator.username }}</td>
+                <td style="align-items: center;">
+                    <button class="btn btn-primary" (click)="approve(event)">Approve</button>
+                    <button class="btn btn-danger" (click)="deleteEvent(event)">Delete</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

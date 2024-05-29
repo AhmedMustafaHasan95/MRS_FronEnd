@@ -1,0 +1,10 @@
+<div class="card flex flex-column md:flex-row gap-3" style="margin-top: 10px;">
+  <p-button label="ADD Event" *ngIf="!showAddModal&&!showUpdateModal" (click)="toggleAddEvent()" [raised]="true"
+    icon="pi pi-plus" class="text-white"></p-button>
+</div>
+<p-card header="Events Calendar" [style]="{'margin-top': '10px'}" *ngIf="!showAddModal&&!showUpdateModal">
+  <full-calendar [options]="calendarOptions" ></full-calendar></p-card>
+<app-add-event *ngIf="showAddModal" (eventAdded)="onEventAdded($event)"
+  (closeModal)="toggleAddEvent()">></app-add-event>
+<app-edit-event *ngIf="showUpdateModal" [event]="eventToUpdate" (eventUpdated)="onEventUpdated($event)"
+  (closeModal)="toggleUpdateEventModal()"></app-edit-event>

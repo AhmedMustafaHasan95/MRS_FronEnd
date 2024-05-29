@@ -1,0 +1,81 @@
+<div class="modal-overlay" (click)="onCancel()"></div>
+
+<div class="modal-container">
+    <div class="modal-header">
+        <h2>Update Event</h2>
+    </div>
+    <div class="modal-body">
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Event Name:</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="event.name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="room">country:</label>
+                <select class="form-control" id="country" name="country" [(ngModel)]="selectedCountry" required
+                    (change)="onCountryChange(selectedCountry)">
+                    <option *ngFor="let country of countries " [ngValue]="country.id">{{ country.name }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="room">office:</label>
+                <select class="form-control" id="office" name="office" [(ngModel)]="selectedOffice" required
+                    (change)="onOfficeChange(selectedOffice)">
+                    <option *ngFor="let office of offices" [ngValue]="office.id">{{ office.name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="room">Room:</label>
+                <select class="form-control" id="room" name="room" [(ngModel)]="event.room" required>
+                    <option *ngFor="let room of rooms" [ngValue]="room">{{ room.name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <select class="form-control" id="type" name="type" [(ngModel)]="event.type" required>
+                    <option *ngFor="let type of eventTypeOptions" [ngValue]="type">{{ type }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="eventDate">Event Date:</label>
+                <input type="date" class="form-control" id="eventDate" name="eventDate" [(ngModel)]="event.eventDate"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="startTime">Start Time:</label>
+                <input class="form-control" type="time" id="startAt" name="startAt" [(ngModel)]="event.startAt" required>
+            </div>
+
+            <div class="form-group">
+                <label for="endTime">End Time:</label>
+                <input class="form-control" id="endAt" type="time" name="endAt" [(ngModel)]="event.endAt" required>
+            </div>
+            <div class="form-group">
+                <label for="contactPerson">Contact Person:</label>
+                <input type="text" class="form-control" id="contactPerson" name="contactPerson"
+                    [(ngModel)]="event.contactPerson">
+            </div>
+            <div class="form-group">
+                <label for="contactEmail">Contact Email:</label>
+                <input type="text" class="form-control" id="contactEmail" name="contactEmail"
+                    [(ngModel)]="event.contactEmail">
+            </div>
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <input type="text" class="form-control" id="description" name="description"
+                    [(ngModel)]="event.description">
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location :</label>
+                <input type="text" class="form-control" id="location" name="location" [(ngModel)]="event.location">
+            </div>
+            <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>

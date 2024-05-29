@@ -1,0 +1,11 @@
+<app-headers></app-headers>
+<div class="container">
+  <app-side-menu></app-side-menu>
+  <div class="container content" [class.shifted]="isSideMenuOpen">
+    <div class="row">
+      <div class="col-md-12">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

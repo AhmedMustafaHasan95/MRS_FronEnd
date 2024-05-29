@@ -1,0 +1,21 @@
+.side-menu-container {
+  height: 100%; /* The parent container will take the height of its parent */
+  position: relative; /* Ensures the side-menu is positioned relative to this container */
+  display: flex;
+}
+
+.side-menu {
+  position: absolute; /* Allows the side-menu to be positioned relative to the container */
+  top: 0;
+  z-index: 1;
+  left: -200px;
+  width: 0;
+  height: 100%; /* Takes the full height of the parent container */
+  background-color: navy;
+  transition: left 0.3s ease-in-out;
+}
+
+.side-menu.open {
+  left: 0;
+  width: 200px;
+}

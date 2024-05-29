@@ -1,0 +1,7 @@
+<p-sidebar [(visible)]="isOpen" icon="pi pi-th-large">
+  <ul class="list-group">
+    <li routerLinkActive="active" class="list-group-item" (click)="navigateToMyEvents()">My Events</li>
+    <li routerLinkActive="active" class="list-group-item" (click)="navigateToPendingEvents()" *ngIf="isHROrAdmin()">
+      Pending Events</li>
+  </ul>
+</p-sidebar>

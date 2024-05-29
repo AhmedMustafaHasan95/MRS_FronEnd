@@ -1,0 +1,45 @@
+<button class="btn btn-primary" *ngIf="!showAddModal&&!showUpdateModal" (click)="toggleAddEvent()"
+  style="margin-top: 20px;">ADD new</button>
+<div class="container mt-4" *ngIf="!showAddModal&&!showUpdateModal">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Contact Person</th>
+        <th>Contact Email</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Event Date</th>
+        <th>Start At</th>
+        <th>End At</th>
+        <th>User</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{ event.name }}</td>
+        <td>{{ event.location }}</td>
+        <td>{{ event.contactPerson }}</td>
+        <td>{{ event.contactEmail }}</td>
+        <td>{{ event.description }}</td>
+        <td>{{ event.type }}</td>
+        <td [ngClass]="calcStatusClass(event.status)">{{ event.status }}</td>
+        <td>{{ event.eventDate }}</td>
+        <td>{{ event.startAt }}</td>
+        <td>{{ event.endAt }}</td>
+        <td>{{ event.creator.username }}</td>
+        <td style="align-items: center;">
+          <button class="btn btn-danger" (click)="deleteEvent(event)">Delete</button>
+          <button class="btn btn-primary" (click)="updateEvent(event)">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-add-event *ngIf="showAddModal" (eventAdded)="onEventAdded($event)"
+  (closeModal)="toggleAddEvent()">></app-add-event>
+<app-edit-event *ngIf="showUpdateModal" [event]="eventToUpdate" (eventUpdated)="onEventUpdated($event)"
+  (closeModal)="toggleUpdateEventModal()"></app-edit-event>

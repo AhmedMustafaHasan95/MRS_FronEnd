@@ -1,0 +1,4 @@
+.side-menu-wrapper {
+    position: relative; /* Ensures the child .side-menu-container is positioned correctly */
+    height: 100%; /* Ensures it takes the full height, if needed */
+  }
